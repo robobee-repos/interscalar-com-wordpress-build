@@ -1,17 +1,15 @@
-FROM  erwin82/wordpress-base:4.8.0-r4
+FROM  erwin82/wordpress-base:4.8.0-r5-1
 LABEL maintainer "Erwin Mueller <erwin.mueller@deventm.com>"
 
 USER root
 
 RUN set -x \
-  && install_wp_theme.sh https://downloads.wordpress.org/theme/parabola.2.2.0.zip '743c773044aa235a66c1d376b11f91c63e2895fcd9a8e28907e9aa12983a75a1'
+  && install_wp_theme.sh https://downloads.wordpress.org/theme/parabola.2.2.1.zip '1f82a70e34a403f0d9a2597fcfaa9b1dd2e99679e546300263738d6ada61b923'
 
 RUN set -x \
-  && install_wp_plugin.sh https://downloads.wordpress.org/plugin/cryout-theme-settings.0.5.7.zip 'e66ce7456d8a96ccb6072a5a1c32fbde26e3986da496486b80c178d7874132a2'
+  && install_wp_plugin.sh https://downloads.wordpress.org/plugin/cryout-theme-settings.0.5.8.zip '40e97f9725cbc12ba130dbbba2f9a60dcddf47cec53623a0f133b3110fe31617'
 
-# Colors http://paletton.com/#uid=53L0Z0kfmwe00++3yM+rishXxmC
-
-ADD rootfs/parabolasettings-httpsinterscalarcom.txt /usr/src/wordpress/wp-content/uploads/parabolasettings-httpsinterscalarcom.txt
+ADD rootfs/parabolasettings-httpswwwinterscalarcom.txt /usr/src/wordpress/wp-content/uploads/parabolasettings-httpswwwinterscalarcom.txt
 
 # Finishing up.
 
