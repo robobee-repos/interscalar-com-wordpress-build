@@ -1,4 +1,4 @@
-FROM  erwin82/wordpress-base:4.8.0-r5-1
+FROM  erwin82/wordpress:v4.8.1-r1-1
 LABEL maintainer "Erwin Mueller <erwin.mueller@deventm.com>"
 
 USER root
@@ -13,9 +13,9 @@ ADD rootfs/parabolasettings-httpswwwinterscalarcom.txt /usr/src/wordpress/wp-con
 
 # Finishing up.
 
-USER www-data
+USER ${WEB_USER}
 
-WORKDIR $WEB_ROOT
+WORKDIR ${WEB_ROOT}
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 
