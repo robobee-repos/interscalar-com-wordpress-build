@@ -1,4 +1,4 @@
-FROM  erwin82/wordpress:v4.8.1-r2-1
+FROM  erwin82/wordpress:v4.8.1-r4-1
 LABEL maintainer "Erwin Mueller <erwin.mueller@deventm.com>"
 
 USER root
