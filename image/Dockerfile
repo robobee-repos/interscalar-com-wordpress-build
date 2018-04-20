@@ -1,13 +1,12 @@
-FROM  erwin82/wordpress:v4.8.1-r4-1
+FROM  robobeerun/wordpress:v4.9.5-php5.6-fpm-r2
 LABEL maintainer "Erwin Mueller <erwin.mueller@deventm.com>"
 
 USER root
 
 RUN set -x \
-  && install_wp_theme.sh https://downloads.wordpress.org/theme/parabola.2.2.1.zip '1f82a70e34a403f0d9a2597fcfaa9b1dd2e99679e546300263738d6ada61b923'
-
+  && /install_wp_theme.sh https://downloads.wordpress.org/theme/parabola.2.2.2.zip 'e69b0a9e7eafb80043dfe9fe0afd3645a021376bb2d12264cfdb154b9d48b5ec'
 RUN set -x \
-  && install_wp_plugin.sh https://downloads.wordpress.org/plugin/cryout-theme-settings.0.5.8.zip '40e97f9725cbc12ba130dbbba2f9a60dcddf47cec53623a0f133b3110fe31617'
+  && /install_wp_plugin.sh https://downloads.wordpress.org/plugin/cryout-theme-settings.0.5.9.zip '2cbf7ce4ba024535e1fd980acbf6571f58839c6b57fef40979de4f9bfa0abf24'
 
 ADD rootfs/parabolasettings-httpswwwinterscalarcom.txt /usr/src/wordpress/wp-content/uploads/parabolasettings-httpswwwinterscalarcom.txt
 
@@ -17,6 +16,6 @@ USER ${WEB_USER}
 
 WORKDIR ${WEB_ROOT}
 
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
 
 CMD ["php-fpm"]
