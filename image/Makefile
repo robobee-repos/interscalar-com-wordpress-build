@@ -1,6 +1,6 @@
 REPOSITORY := erwin82
 NAME := interscalar-com-wordpress
-VERSION ?= v5-r1-1
+VERSION ?= v5-r1
 
 build: _build ##@targets Builds the docker image.
 
