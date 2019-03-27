@@ -18,6 +18,8 @@ setup:
 	    mkdir -p root/$${file}; \
 	    sudo chmod o+rwX root/$${file}; \
 	done
+	sudo chown 1001.root -R root/db
+	sudo chown 33.33 -R root/html
 .PHONY: setup
 
 count-php-files:
