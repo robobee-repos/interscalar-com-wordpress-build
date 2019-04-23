@@ -2,39 +2,38 @@ version: '3.1'
 
 services:
 
-  wordpress:
-    image: erwin82/interscalar-com-wordpress:latest
-    environment:
-      WORDPRESS_DB_HOST: "db:3306"
-      WORDPRESS_DB_NAME: "wordpressdb"
-      WORDPRESS_DB_USER: "wordpressdb"
-      WORDPRESS_DB_PASSWORD: "sooga5Jea3UGhie3eeboopoomo9beada"
-    links:
-      - "mariadb:db"
-    volumes:
-      - "./root/html:/var/www/html"
+  #wordpress:
+    #image: erwin82/interscalar-com-wordpress:latest
+    #environment:
+      #WORDPRESS_DB_HOST: "db:3306"
+      #WORDPRESS_DB_NAME: "wordpressdb"
+      #WORDPRESS_DB_USER: "wordpressdb"
+      #WORDPRESS_DB_PASSWORD: "sooga5Jea3UGhie3eeboopoomo9beada"
+    #links:
+      #- "mariadb:db"
+    #volumes:
+      #- "./root/html:/var/www/html"
 
-  nginx:
-    image: robobeerun/nginx:latest
-    ports:
-      - 8080:8080
-    links:
-      - wordpress
-    volumes:
-      - "./nginx-in:/nginx-in"
-      - "./root/html:/var/www/html"
+  #nginx:
+    #image: robobeerun/nginx:latest
+    #ports:
+      #- 8080:8080
+    #links:
+      #- wordpress
+    #volumes:
+      #- "./nginx-in:/nginx-in"
+      #- "./root/html:/var/www/html"
 
   mariadb:
-    image: bitnami/mariadb:10.1.38-debian-9-r65
+    image: mariadb:10.3.8-bionic
     environment:
       ALLOW_EMPTY_PASSWORD: "no"
-      MARIADB_ROOT_USER: "root"
-      MARIADB_ROOT_PASSWORD: "ugeepaemiemiemeith5Voh8eekoopoog"
-      MARIADB_USER: "wordpressdb"
-      MARIADB_DATABASE: "wordpressdb"
-      MARIADB_PASSWORD: "sooga5Jea3UGhie3eeboopoomo9beada"
+      MYSQL_ROOT_PASSWORD: "ugeepaemiemiemeith5Voh8eekoopoog"
+      MYSQL_USER: "wordpressdb"
+      MYSQL_DATABASE: "wordpressdb"
+      MYSQL_PASSWORD: "sooga5Jea3UGhie3eeboopoomo9beada"
     volumes:
-      - "./root/db:/bitnami/mariadb"
+      - "./root/db:/var/lib/mysql"
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
