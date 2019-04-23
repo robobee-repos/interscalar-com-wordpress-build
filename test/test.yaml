@@ -3,7 +3,7 @@ version: '3.1'
 services:
 
   wordpress:
-    image: erwin82/interscalar-com-wordpress:v3-2
+    image: erwin82/interscalar-com-wordpress:latest
     environment:
       WORDPRESS_DB_HOST: "db:3306"
       WORDPRESS_DB_NAME: "wordpressdb"
@@ -25,7 +25,7 @@ services:
       - "./root/html:/var/www/html"
 
   mariadb:
-    image: bitnami/mariadb:10.1.32-r17
+    image: bitnami/mariadb:10.1.38-debian-9-r65
     environment:
       ALLOW_EMPTY_PASSWORD: "no"
       MARIADB_ROOT_USER: "root"
