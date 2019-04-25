@@ -1,6 +1,6 @@
 REPOSITORY := erwin82
 NAME := interscalar-com-wordpress
-VERSION ?= v5.1.1-php7.1-fpm-r.1
+VERSION ?= v5.1.1-php7.1-fpm-r.2
 
 .PHONY: build
 build: _build ##@targets Builds the docker image.
@@ -25,7 +25,7 @@ check-plugins:
 	@$(call checkfile_for_install,plugin,https://downloads.wordpress.org/plugin/cryout-theme-settings.0.5.9.zip)
 
 check-themes:
-	@$(call checkfile_for_install,theme,https://downloads.wordpress.org/theme/parabola.2.3.1.zip)
+	@$(call checkfile_for_install,theme,https://downloads.wordpress.org/theme/parabola.2.3.2.1.zip)
 
 include ../utils/Makefile.help
 include ../utils/Makefile.functions
