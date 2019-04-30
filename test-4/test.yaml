@@ -1,0 +1,21 @@
+version: '3.1'
+
+services:
+
+  mariadb:
+    image: mariadb:10.3.8-bionic
+    environment:
+      ALLOW_EMPTY_PASSWORD: "no"
+      MYSQL_ROOT_PASSWORD: "ugeepaemiemiemeith5Voh8eekoopoog"
+      MYSQL_USER: "wordpressdb"
+      MYSQL_DATABASE: "wordpressdb"
+      MYSQL_PASSWORD: "sooga5Jea3UGhie3eeboopoomo9beada"
+    volumes:
+      - "./root/db:/var/lib/mysql"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    ports:
+      - 8090:80
+    links:
+      - "mariadb:db"

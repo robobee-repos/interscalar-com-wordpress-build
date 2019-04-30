@@ -5,6 +5,7 @@ services:
   wordpress:
     image: erwin82/interscalar-com-wordpress:latest
     environment:
+      DEBUG: "true"
       WORDPRESS_DB_HOST: "db:3306"
       WORDPRESS_DB_NAME: "wordpressdb"
       WORDPRESS_DB_USER: "wordpressdb"
