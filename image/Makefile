@@ -1,6 +1,6 @@
 REPOSITORY := erwin82
 NAME := interscalar-com-wordpress
-VERSION ?= v5.1.1-php7.1-fpm-r.3
+VERSION ?= v5.2.0-php7.1-fpm-r.1
 
 .PHONY: build
 build: _build ##@targets Builds the docker image.
@@ -17,14 +17,18 @@ define checkfile_for_install
    name=$$(basename $2) && \
    sha=$$(sha256sum $${name}|cut -f1 -d' ') && \
    rm $${name} && \
-   echo "RUN set -x \\" && \
-   echo "  && /install_wp_$1.sh $2 '$${sha}'"
+   echo "/install_wp_$1.sh $2 '$${sha}'"
 endef
 
 check-plugins:
+	@echo "#!/bin/bash"
+	@echo "set -e"
+	@$(call checkfile_for_install,plugin,https://downloads.wordpress.org/plugin/miniorange-login-with-eve-online-google-facebook.6.10.5.zip)
 	@$(call checkfile_for_install,plugin,https://downloads.wordpress.org/plugin/cryout-theme-settings.0.5.10.zip)
 
 check-themes:
+	@echo "#!/bin/bash"
+	@echo "set -e"
 	@$(call checkfile_for_install,theme,https://downloads.wordpress.org/theme/parabola.2.3.2.1.zip)
 
 include ../utils/Makefile.help
