@@ -1,6 +1,6 @@
 REPOSITORY := erwin82
 NAME := interscalar-com-wordpress
-VERSION ?= v5.2.0-php7.1-fpm-r.1
+VERSION ?= v5.2.0-php7.1-fpm-r.2
 
 .PHONY: build
 build: _build ##@targets Builds the docker image.

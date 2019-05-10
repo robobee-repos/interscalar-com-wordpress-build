@@ -1,7 +1,12 @@
-FROM  robobeerun/wordpress:v5.2.0-php7.1-fpm-r.1
+FROM  robobeerun/wordpress:v5.2.0-php7.1-fpm-r.2
 LABEL maintainer "Erwin Mueller <erwin.mueller@deventm.com>"
 
 USER root
+
+ADD rootfs/ /
+
+RUN set -x \
+  && chmod +x /*.sh
 
 # Install plugins.
 
