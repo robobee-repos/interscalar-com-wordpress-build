@@ -21,8 +21,8 @@ setup:
 	    mkdir -p root/$${file}; \
 	    sudo chmod o+rwX root/$${file}; \
 	done
-	sudo chown 1001.root -R root/db
 	sudo chown 33.33 -R root/html
+	sudo chmod u=rwX,g=rwX,o=rX -R root/html
 
 .PHONY: own-files
 own-files:
